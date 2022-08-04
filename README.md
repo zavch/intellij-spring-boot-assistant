@@ -1,15 +1,16 @@
-### IntelliJ plugin that assists you in developing spring applications
+![Version](https://img.shields.io/jetbrains/plugin/v/18622-spring-initializr-and-assistant)
+![Downloads](https://img.shields.io/jetbrains/plugin/d/18622-spring-initializr-and-assistant)
+![Rating](https://img.shields.io/jetbrains/plugin/r/rating/18622-spring-initializr-and-assistant)
+<!-- Plugin description -->
+Assist in Spring application development - Adds support for start initializr, autocomplete Spring Boot/Cloud configuration key/value, Spring reference configuration, Spring metadata documentation.(Support: Java, Kotlin, application.yml and bootstrap.properties)
 
 ---
-
 ## Features:
-
 ### Spring Intilializr
-
-1. Allows you to bootstrap new project & new module using `File -> New -> Project -> Spring Assistant` & `File -> New -> Module -> Spring Assistant`
+1. Allows you to bootstrap new project & new module using `File-> New-> Project-> Spring Assistant` & `File-> New-> Module-> Spring Assistant`
    wizards. Looks & Feel resembles Intellij Ultimate, but with less bells & whistles
 
-![Spring Intilializr in action](https://github.com/eltonsandre/intellij-spring-assistant/blob/feature/link-to-properties/demo/initializr.gif?raw=true)
+<a> <img alt="Spring Intilializr in action" width="600" src="https://github.com/eltonsandre/intellij-spring-boot-assistant/blob/main/gif/spring-initializr.gif?raw=true" /> </a>
 
 ### Autocomplete configuration properties
 
@@ -22,13 +23,17 @@
 4. Quick documentation for groups & properties (not all groups & properties will have documentation, depends on whether the original author specified
    documentation or not for any given element)
 
-![Autocomplete in action](https://github.com/eltonsandre/intellij-spring-assistant/blob/feature/link-to-properties/demo/autocomplete-config.gif?raw=true)
+<a> <img alt="Autocomplete in action" width="600" src="https://github.com/eltonsandre/intellij-spring-boot-assistant/blob/main/gif/completion-hints.gif?raw=true" /> </a>
 
-### Link to configuration properties
+### Go to configuration properties
 
 1. Ctrl+click to go to property or code
 
-![link in action](https://github.com/eltonsandre/intellij-spring-assistant/blob/feature/link-to-properties/demo/link-config.gif?raw=true)
+<a> <img alt="Goto in action" width="600" src="https://github.com/eltonsandre/intellij-spring-boot-assistant/blob/main/gif/goto-key-value.gif?raw=true" /> </a>
+
+2. goto placeholder
+
+<a> <img alt="Goto in action" width="600" src="https://github.com/eltonsandre/intellij-spring-boot-assistant/blob/main/gif/placeholder.gif?raw=true" /> </a>
 
 ## Usage
 
@@ -36,7 +41,7 @@
 Assuming that you have Spring boot's autoconfiguration jars are present in the classpath, this plugin will automatically allows you to autocomplete
 properties as suggestions in all your `yml` files
 
-Suggestions would appear as soon as you type/press `CTRL+SPACE`.
+Suggestions would appear as soon as you type/press `Ctrl+Space`.
 
 Short form suggestions are also supported such as, `sp.d` will show you `spring.data`, `spring.datasource`, e.t.c as suggestions that make your typing
 faster
@@ -48,7 +53,7 @@ For this to work, you need to ensure the following steps are followed for your p
 
 ### Setup for showing ConfigurationProperties as suggestions within current module
 
-1. Make sure `Enable annotation processing` is checked under `Settings > Build, Execution & Deployment > Compiler > Annotation Processors`
+1. Make sure `Enable annotation processing` is checked under `Settings > Build, Execution &amp; Deployment > Compiler > Annotation Processors`
 2. Make sure you add the following changes to your project
 
 #### *For Gradle*
@@ -58,7 +63,7 @@ scope (as we dont need `spring-boot-configuration-processor` as a dependency in 
 
 ```groovy
 dependencies {
-    optional 'org.springframework.boot:spring-boot-configuration-processor'
+   annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 }
 
 compileJava.dependsOn(processResources)
@@ -66,13 +71,11 @@ compileJava.dependsOn(processResources)
 
 #### *For Maven*
 
-Add the following dependency
-
 ```xml
 <dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-configuration-processor</artifactId>
-    <optional>true</optional>
+   <groupId>org.springframework.boot</groupId>
+   <artifactId>spring-boot-configuration-processor</artifactId>
+   <optional>true</optional>
 </dependency>
 ```
 
@@ -80,8 +83,11 @@ Add the following dependency
    to `File | Settings | Build, Execution, Deployment | Build Tools | Gradle | Runner => Delegate IDE build/run actions to gradle` & restart the IDE.
    This will ensure that gradle plugin generates metadata & Intellij is pointing to it
 
-> If you want to look at a sample project, look inside [samples](samples/) directory where the above setup is done. These samples allow properties from `@ConfigurationProperties` to be shown as suggestions
+> directory where the above setup is done. These samples allow properties from `@ConfigurationProperties` to be shown as suggestions
 
+<!-- Plugin description end -->
+
+---
 ⚠️ **IMPORTANT**
 
 > After changing your custom `@ConfigurationProperties` files, suggestions would be refreshed only after you trigger the build explicitly using keyboard (`Ctrl+F9`)/UI
@@ -96,24 +102,11 @@ Add the following dependency
 To install the plugin open your editor (IntelliJ) and hit:
 
 1. `File > Settings > Plugins` and click on the `Browse repositories` button.
-2. Look for `Spring Assistant` the right click and select `Download plugin`.
+2. Look for `Spring boot Assistant` the right click and select `Download plugin`.
 3. Finally hit the `Apply` button, agree to restart your IDE and you're all done!
 
-Feel free to let me know what else you want added via the [issues](https://github.com/eltonsandre/intellij-spring-assistant/issues)
+Feel free to let me know what else you want added via the [issues](https://github.com/eltonsandre/intellij-spring-boot-assistant/issues)
 
 ## Changelog
 
 See [here](CHANGELOG.md)
-
----
-
-### This tool is free for personal and commercial usage. [Donations](https://www.paypal.com/donate/?business=CZ9QNZ67X6RPA&no_recurring=0&item_name=Intellij+Spring+Intilializr+%26+assistant%3A%0AThis+tool+is+free+for+personal+and+commercial+usage.+Donations+are+very+welcome+though&currency_code=USD) are very welcome though.
-
----
-
-#### This project is a  [Spring Assistant - IntelliJ Plugin](https://github.com/1tontech/intellij-spring-assistant) fork by @1tontech
-
-**why this fork?**
-
-_The idea is to carry out more constant maintenance and additions of new features_
-

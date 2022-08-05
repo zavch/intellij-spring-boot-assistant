@@ -3,6 +3,9 @@ import com.vladsch.flexmark.parser.Parser
 
 buildscript {
     repositories {
+        maven {
+            url 'https://maven.aliyun.com/repository/public/'
+        }
         mavenCentral()
     }
     dependencies {
@@ -26,6 +29,9 @@ compileTestJava.options.encoding = 'UTF-8'
 compileJava.options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
 
 repositories {
+    maven {
+        url 'https://maven.aliyun.com/repository/public/'
+    }
     mavenLocal()
     mavenCentral()
 }
@@ -74,6 +80,7 @@ publishPlugin {
 
 patchPluginXml {
     sinceBuild.set('203')
+    untilBuild.set('')
     pluginDescription.set(provider { readmeXmlAsHtml() })
     changeNotes.set(provider { changeLogAsHtml() })
 }

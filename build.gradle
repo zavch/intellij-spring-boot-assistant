@@ -53,7 +53,7 @@ dependencies {
     implementation 'org.apache.commons:commons-collections4:4.4'
     implementation 'com.miguelfonseca.completely:completely-core:0.9.0'
 
-    testImplementation platform('org.junit:junit-bom:5.8.2'),
+    testImplementation platform('org.junit:junit-bom:5.9.2'),
             'org.junit.jupiter:junit-jupiter',
             'org.junit.jupiter:junit-jupiter-api',
             'org.mockito:mockito-core:4.3.1'
